@@ -20,8 +20,7 @@ import java.util.Comparator;
  * @param <E> Sąrašo elementų tipas (klasė)
  * @author Aleksis
  */
-public class LinkedList<E extends Comparable<E>>
-        implements List<E>, Iterable<E>, Cloneable {
+public class LinkedList<E extends Comparable<E>> implements List<E>, Iterable<E>, Cloneable {
 
     private Node<E> first;   // rodyklė į pirmą mazgą
     private Node<E> last;    // rodyklė į paskutinį mazgą
@@ -72,8 +71,46 @@ public class LinkedList<E extends Comparable<E>>
         if (k < 0 || k >= size) {
             return false;
         }
-        throw new UnsupportedOperationException("Studentams reikia realizuoti add(int k, E e)");
+        Node<E> node = new Node<E>();
+        node.element = e;
+        node.next = null;
+
+        if (this.first == null) {
+            //if head is null and position is zero then exit.
+            if (k != 0) {
+                return false;
+            } else { //node set to the head.
+                this.first = node;
+            }
+        }
+
+        if (first != null && k == 0) {
+            node.next = this.first;
+            this.first = node;
+            return false;
+        }
+
+        Node current = this.first;
+        Node previous = null;
+
+        int i = 0;
+
+        while (i < k) {
+            previous = current;
+            current = current.next;
+
+            if (current == null) {
+                break;
+            }
+
+            i++;
+        }
+
+        node.next = current;
+        previous.next = node;
+        return true;
     }
+
 
     /**
      * @return sąrašo dydis (elementų kiekis)
@@ -128,7 +165,13 @@ public class LinkedList<E extends Comparable<E>>
      */
     @Override
     public E set(int k, E e) {
-        throw new UnsupportedOperationException("Studentams reikia realizuoti set(int k, E e)");
+        E oldVal = null;
+        if (k >= 0 && k < size) {
+            Node<E> x = first.findNode(k);
+            oldVal = x.element;
+            x.element = e;
+        }
+        return oldVal;
     }
 
     /**
@@ -328,7 +371,13 @@ public class LinkedList<E extends Comparable<E>>
 
         @Override
         public void remove() {
-            throw new UnsupportedOperationException("Studentams reikia realizuoti remove()");
+            if (current != null) {
+                if (last != null) {
+                    last.next = current.next;
+                } else {
+                    first = current.next;
+                }
+            }
         }
     }
 
@@ -345,6 +394,10 @@ public class LinkedList<E extends Comparable<E>>
         Node(E data, Node<E> next) { //mazgo konstruktorius
             this.element = data;
             this.next = next;
+        }
+
+        public Node() {
+
         }
 
         /**
