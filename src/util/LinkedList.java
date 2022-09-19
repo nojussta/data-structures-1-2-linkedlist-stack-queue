@@ -386,7 +386,7 @@ public class LinkedList<E extends Comparable<E>> implements List<E>, Iterable<E>
      *
      * @param <E> mazgo duomenų tipas
      */
-    private static class Node<E> {
+    static class Node<E> {
 
         private E element;    // ji nematoma už klasės ListKTU ribų
         private Node<E> next; // next - kaip įprasta - nuoroda į kitą mazgą
