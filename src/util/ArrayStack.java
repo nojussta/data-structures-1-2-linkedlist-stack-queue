@@ -1,5 +1,7 @@
 package util;
 
+import inter.StackInter;
+
 import java.util.ArrayList;
 
 public class ArrayStack<E> implements StackInter<E> {
@@ -32,7 +34,7 @@ public class ArrayStack<E> implements StackInter<E> {
     }
 
     @Override
-    public E peek() {
+    public E peak() {
         return thisList.get(thisList.size() - 1);
     }
 }

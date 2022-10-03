@@ -1,5 +1,7 @@
 package util;
 
+import inter.QueueInter;
+
 import java.util.ArrayList;
 
 public class ArrayQueue<E> implements QueueInter<E> {
