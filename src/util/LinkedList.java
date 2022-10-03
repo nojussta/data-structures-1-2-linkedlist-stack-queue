@@ -71,44 +71,70 @@ public class LinkedList<E extends Comparable<E>> implements List<E>, Iterable<E>
         if (k < 0 || k >= size) {
             return false;
         }
-        Node<E> node = new Node<E>();
-        node.element = e;
-        node.next = null;
-
-        if (this.first == null) {
-            //if head is null and position is zero then exit.
-            if (k != 0) {
-                return false;
-            } else { //node set to the head.
-                this.first = node;
+        if (k == 0) {
+            Node<E> toAdd = new Node<>(e, first);
+            first = toAdd;
+            size++;
+            return true;
+        } else {
+            Node curr = first;
+            Node prev = null;
+            int i = 0;
+            while (i < k) {
+                prev = curr;
+                curr = curr.next;
+                i++;
             }
+            prev.next = new Node(e, curr);
+            size++;
+            return true;
         }
+//    @Override
+//    public boolean add(int k, E e) {
+//        if (e == null) {
+//            return false;
+//        }
+//        if (k < 0 || k >= size) {
+//            return false;
+//        }
+//        Node<E> node = new Node<E>();
+//        node.element = e;
+//        node.next = null;
+//
+//        if (this.first == null) {
+//            //if head is null and position is zero then exit.
+//            if (k != 0) {
+//                return false;
+//            } else { //node set to the head.
+//                this.first = node;
+//            }
+//        }
+//
+//        if (first != null && k == 0) {
+//            node.next = this.first;
+//            this.first = node;
+//            return false;
+//        }
+//
+//        Node current = this.first;
+//        Node previous = null;
+//
+//        int i = 0;
+//
+//        while (i < k) {
+//            previous = current;
+//            current = current.next;
+//
+//            if (current == null) {
+//                break;
+//            }
+//
+//            i++;
+//        }
 
-        if (first != null && k == 0) {
-            node.next = this.first;
-            this.first = node;
-            return false;
-        }
-
-        Node current = this.first;
-        Node previous = null;
-
-        int i = 0;
-
-        while (i < k) {
-            previous = current;
-            current = current.next;
-
-            if (current == null) {
-                break;
-            }
-
-            i++;
-        }
-
-        node.next = current;
-        previous.next = node;
-        return true;
+//        node.next = current;
+//        previous.next = node;
+//        return true;
     }
 
 
@@ -152,8 +178,14 @@ public class LinkedList<E extends Comparable<E>> implements List<E>, Iterable<E>
         if (k < 0 || k >= size) {
             return null;
         }
-        current = first.findNode(k);
-        return current.element;
+        if (k < size - 1) {
+            current = first;
+            for (int i = 0; i < k; i++) {
+                current = current.next;
+            }
+            return current.element;
+        }
+        return last.element;
     }
 
     /**
@@ -199,20 +231,40 @@ public class LinkedList<E extends Comparable<E>> implements List<E>, Iterable<E>
      */
     @Override
     public E remove(int k) {
-        int idx = 0;
-        Node<E> prev = first;
+        if (first == null) return null;
+        if (k >= size) return null;
+        current = first.findNode(k - 1);
+        E deletedElement;
         if (k == 0) {
+            deletedElement = first.element;
             first = first.next;
-            return first.element;
+            size--;
+            return deletedElement;
         }
-        while ((prev = prev.next) != null) {
-            if (idx == k) {
-                prev.next = prev.next.next;
-                return prev.element;
-            }
-            idx++;
+
+        deletedElement = current.next.element;
+        if (current.next.next == null) {
+            current.next = null;
+            last = current;
+        } else {
+            current.next = current.next.next;
         }
-        return prev.element;
+        size--;
+        return deletedElement;
+//        int idx = 0;
+//        Node<E> prev = first;
+//        if (k == 0) {
+//            first = first.next;
+//            return first.element;
+//        }
+//        while ((prev = prev.next) != null) {
+//            if (idx == k) {
+//                prev.next = prev.next.next;
+//                return prev.element;
+//            }
+//            idx++;
+//        }
+//        return prev.element;
     }
 
     /**
