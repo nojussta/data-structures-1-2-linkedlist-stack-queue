@@ -12,7 +12,7 @@ import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import util.Parsable;
+import inter.Parsable;
 
 public class Car implements Parsable<Car> {
 
