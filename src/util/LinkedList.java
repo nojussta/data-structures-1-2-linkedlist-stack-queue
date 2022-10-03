@@ -11,6 +11,8 @@
  */
 package util;
 
+import inter.List;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -89,52 +91,6 @@ public class LinkedList<E extends Comparable<E>> implements List<E>, Iterable<E>
             size++;
             return true;
         }
-//    @Override
-//    public boolean add(int k, E e) {
-//        if (e == null) {
-//            return false;
-//        }
-//        if (k < 0 || k >= size) {
-//            return false;
-//        }
-//        Node<E> node = new Node<E>();
-//        node.element = e;
-//        node.next = null;
-//
-//        if (this.first == null) {
-//            //if head is null and position is zero then exit.
-//            if (k != 0) {
-//                return false;
-//            } else { //node set to the head.
-//                this.first = node;
-//            }
-//        }
-//
-//        if (first != null && k == 0) {
-//            node.next = this.first;
-//            this.first = node;
-//            return false;
-//        }
-//
-//        Node current = this.first;
-//        Node previous = null;
-//
-//        int i = 0;
-//
-//        while (i < k) {
-//            previous = current;
-//            current = current.next;
-//
-//            if (current == null) {
-//                break;
-//            }
-//
-//            i++;
-//        }
-
-//        node.next = current;
-//        previous.next = node;
-//        return true;
     }
 
 

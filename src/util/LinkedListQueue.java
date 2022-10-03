@@ -1,5 +1,7 @@
 package util;
 
+import inter.QueueInter;
+
 import java.util.LinkedList;
 
 public class LinkedListQueue<E> implements QueueInter<E> {

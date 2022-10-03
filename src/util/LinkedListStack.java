@@ -1,5 +1,7 @@
 package util;
 
+import inter.StackInter;
+
 import java.util.LinkedList;
 
 public class LinkedListStack<E> implements StackInter<E> {
@@ -25,7 +27,7 @@ public class LinkedListStack<E> implements StackInter<E> {
     }
 
     @Override
-    public E peek() {
+    public E peak() {
         return thisList.peekFirst();
     }
 
