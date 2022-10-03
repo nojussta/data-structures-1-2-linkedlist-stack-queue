@@ -22,6 +22,10 @@ public class ManualTest {
 //        checkCarMarketSorting();
     }
 
+    void testLinkedListQueue(){
+
+    }
+
     void createCars() {
         Car c1 = new Car("Renault", "Laguna", 1997, 50000, 1700);
         Car c2 = new Car("Renault", "Megane", 2001, 20000, 3500);
@@ -66,21 +70,19 @@ public class ManualTest {
         Ks.oun("Kitų 3 auto kainų suma= "
                 + (cars.get(3).getPrice() + cars.get(4).getPrice()
                 + cars.get(5).getPrice()));
-        Ks.oun("==============================================================================");
-        Ks.oun("==============================================================================");
-        Ks.oun("==============================================================================");
+        Ks.oun("=================================LinkedListTests=============================================");
         // palaipsniui atidenkite sekančias eilutes ir išbandykite
         cars.add(0, new Car("Mazda","6",2007,50000,27000));
         cars.add(6, new Car("Hyundai","Lantra",1998,9500,777));
         cars.set(4, c3);
         cars.println("Po įterpimų");
-//        cars.remove(7);
-//        cars.remove(0);
+        cars.remove(7);
+        cars.remove(0);
         cars.println("Po išmetimų");
         cars.remove(0); cars.remove(0); cars.remove(0);
         cars.remove(0); cars.remove(0); cars.remove(0);
         cars.println("Po visų išmetimų");
-//        cars.remove(0);
+        cars.remove(0);
         cars.println("Po visų išmetimų");
     }
 
