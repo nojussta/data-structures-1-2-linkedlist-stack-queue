@@ -5,7 +5,8 @@
  *************************************************************************** */
 package com.ktu;
 
-import util.Ks;
+import util.*;
+
 import java.util.Comparator;
 import java.util.Locale;
 
@@ -14,16 +15,108 @@ public class ManualTest {
     CarList cars = new CarList();
 
     void execute() {
-        createCars();
-        createCarList();
+//        createCars();
+//        createCarList();
 //        countRenault();
 //        appendCarList();
 //        checkCarMarketFilters();
 //        checkCarMarketSorting();
+        testLinkedListQueue();
+        testArrayListQueue();
+        testLinkedListStack();
+        testArrayListStack();
     }
 
     void testLinkedListQueue(){
+        System.out.println("=========================================================================");
+        System.out.println("LinkedList Queue testai");
+        LinkedListQueue<Car> carQueueList = new LinkedListQueue<>();
+        Car c1 = new Car("BMW", "320d", 1997, 50000, 4000);
+        Car c2 = new Car("Opel", "Omega", 2001, 20000, 1500);
+        Car c3 = new Car("Toyota", "Corolla", 2001, 20000, 8500.8);
+        System.out.println();
+        System.out.println("Automobiliai pridedami į eilę/queue");
+        carQueueList.enqueue(c1);
+        carQueueList.enqueue(c2);
+        carQueueList.enqueue(c3);
+        System.out.println(String.format("Visi sąrašo elementai: %s", carQueueList.getList()));
+        System.out.println(String.format("Ar eilė/queue yra tuščia: %b", carQueueList.isEmpty()));
+        System.out.println(String.format("Pirmasis sąrašo automobilis: %s", carQueueList.peak().toString()));
+        System.out.println(String.format("Iš sąrašo panaikintas automobilis: %s", carQueueList.dequeue().toString()));
+        System.out.println(String.format("Pirmasis sąrašo automobilis: %s", carQueueList.peak().toString()));
+        System.out.println(String.format("Iš sąrašo panaikintas automobilis: %s", carQueueList.dequeue().toString()));
+        System.out.println(String.format("Pirmasis sąrašo automobilis: %s", carQueueList.peak().toString()));
+        System.out.println(String.format("Iš sąrašo panaikintas automobilis: %s", carQueueList.dequeue().toString()));
+        System.out.println(String.format("Ar eilė/queue yra tuščia: %b", carQueueList.isEmpty()));
+    }
 
+    void testArrayListQueue(){
+        System.out.println("=========================================================================");
+        System.out.println("ArrayList Queue testai");
+        ArrayQueue<Car> carQueueList = new ArrayQueue<>();
+        Car c1 = new Car("BMW", "320d", 1997, 50000, 4000);
+        Car c2 = new Car("Opel", "Omega", 2001, 20000, 1500);
+        Car c3 = new Car("Toyota", "Corolla", 2001, 20000, 8500.8);
+        System.out.println();
+        System.out.println("Automobiliai pridedami į eilę/queue");
+        carQueueList.enqueue(c1);
+        carQueueList.enqueue(c2);
+        carQueueList.enqueue(c3);
+        System.out.println(String.format("Visi sąrašo elementai: %s", carQueueList.getList()));
+        System.out.println(String.format("Ar eilė/queue yra tuščia: %b", carQueueList.isEmpty()));
+        System.out.println(String.format("Pirmasis sąrašo automobilis: %s", carQueueList.peak().toString()));
+        System.out.println(String.format("Iš sąrašo panaikintas automobilis: %s", carQueueList.dequeue().toString()));
+        System.out.println(String.format("Pirmasis sąrašo automobilis: %s", carQueueList.peak().toString()));
+        System.out.println(String.format("Iš sąrašo panaikintas automobilis: %s", carQueueList.dequeue().toString()));
+        System.out.println(String.format("Pirmasis sąrašo automobilis: %s", carQueueList.peak().toString()));
+        System.out.println(String.format("Iš sąrašo panaikintas automobilis: %s", carQueueList.dequeue().toString()));
+        System.out.println(String.format("Ar eilė/queue yra tuščia: %b", carQueueList.isEmpty()));
+    }
+
+    void testLinkedListStack(){
+        System.out.println("=========================================================================");
+        System.out.println("LinkedList Stack testai");
+        LinkedListStack<Car> carQueueList = new LinkedListStack<>();
+        Car c1 = new Car("BMW", "320d", 1997, 50000, 4000);
+        Car c2 = new Car("Opel", "Omega", 2001, 20000, 1500);
+        Car c3 = new Car("Toyota", "Corolla", 2001, 20000, 8500.8);
+        System.out.println();
+        System.out.println("Automobiliai pridedami į steką/stack");
+        carQueueList.push(c1);
+        carQueueList.push(c2);
+        carQueueList.push(c3);
+        System.out.println(String.format("Visi sąrašo elementai: %s", carQueueList.getList()));
+        System.out.println(String.format("Ar stekas/stack yra tuščias: %b", carQueueList.isEmpty()));
+        System.out.println(String.format("Pirmasis sąrašo automobilis: %s", carQueueList.peak().toString()));
+        System.out.println(String.format("Iš sąrašo panaikintas automobilis: %s", carQueueList.pop().toString()));
+        System.out.println(String.format("Pirmasis sąrašo automobilis: %s", carQueueList.peak().toString()));
+        System.out.println(String.format("Iš sąrašo panaikintas automobilis: %s", carQueueList.pop().toString()));
+        System.out.println(String.format("Pirmasis sąrašo automobilis: %s", carQueueList.peak().toString()));
+        System.out.println(String.format("Iš sąrašo panaikintas automobilis: %s", carQueueList.pop().toString()));
+        System.out.println(String.format("Ar eilė/queue yra tuščia: %b", carQueueList.isEmpty()));
+    }
+
+    void testArrayListStack(){
+        System.out.println("=========================================================================");
+        System.out.println("ArrayList Stack testai");
+        ArrayStack<Car> carQueueList = new ArrayStack<>();
+        Car c1 = new Car("BMW", "320d", 1997, 50000, 4000);
+        Car c2 = new Car("Opel", "Omega", 2001, 20000, 1500);
+        Car c3 = new Car("Toyota", "Corolla", 2001, 20000, 8500.8);
+        System.out.println();
+        System.out.println("Automobiliai pridedami į steką/stack");
+        carQueueList.push(c1);
+        carQueueList.push(c2);
+        carQueueList.push(c3);
+        System.out.println(String.format("Visi sąrašo elementai: %s", carQueueList.getList()));
+        System.out.println(String.format("Ar stekas/stack yra tuščias: %b", carQueueList.isEmpty()));
+        System.out.println(String.format("Pirmasis sąrašo automobilis: %s", carQueueList.peak().toString()));
+        System.out.println(String.format("Iš sąrašo panaikintas automobilis: %s", carQueueList.pop().toString()));
+        System.out.println(String.format("Pirmasis sąrašo automobilis: %s", carQueueList.peak().toString()));
+        System.out.println(String.format("Iš sąrašo panaikintas automobilis: %s", carQueueList.pop().toString()));
+        System.out.println(String.format("Pirmasis sąrašo automobilis: %s", carQueueList.peak().toString()));
+        System.out.println(String.format("Iš sąrašo panaikintas automobilis: %s", carQueueList.pop().toString()));
+        System.out.println(String.format("Ar eilė/queue yra tuščia: %b", carQueueList.isEmpty()));
     }
 
     void createCars() {
