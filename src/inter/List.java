@@ -4,7 +4,7 @@
  * apibrėžiantis operacijas, kurių pagalba atskiri objektai apjungiami
  * į vieną visumą - sąrašą.
  ***************************************************************************** */
-package util;
+package inter;
 
 public interface List<E> {
 

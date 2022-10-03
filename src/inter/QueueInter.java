@@ -1,4 +1,4 @@
-package util;
+package inter;
 
 public interface QueueInter<E> {
     void enqueue(E item);
