@@ -344,6 +344,49 @@ public class LinkedList<E extends Comparable<E>> implements List<E>, Iterable<E>
         }
     }
 
+    public boolean removeFirstOccurence(Object o) {
+        if (first == null)
+            return false;
+
+        Node prevNode = null;
+
+        for (Node i = first; i != null; i = i.next) {
+            if (i.element == o) {
+                if (prevNode == null) {
+                    first = first.next;
+                    return true;
+                } else if (i.next == null) {
+                    prevNode.next = null;
+                    return true;
+                } else {
+                    prevNode.next = i.next;
+                    size--;
+                    return true;
+                }
+            } else
+                prevNode = i;
+        }
+        return false;
+    }
+//    public boolean removeFirstOccurence(Object o) {
+//        if (o == null) {
+//            for (Node<E> x = first; x != null; x = x.next) {
+//                if (x.element == null) {
+//                    unlink(x);
+//                    return true;
+//                }
+//            }
+//        } else {
+//            for (Node<E> x = first; x != null; x = x.next) {
+//                if (o.equals(x.element)) {
+//                    unlink(x);
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
+
     /**
      * Sukuria iteratoriaus objektą sąrašo elementų peržiūrai
      *

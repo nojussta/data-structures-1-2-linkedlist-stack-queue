@@ -16,15 +16,15 @@ public class ManualTest {
 
     void execute() {
 //        createCars();
-//        createCarList();
+        createCarList();
 //        countRenault();
 //        appendCarList();
 //        checkCarMarketFilters();
 //        checkCarMarketSorting();
-        testLinkedListQueue();
-        testArrayListQueue();
-        testLinkedListStack();
-        testArrayListStack();
+//        testLinkedListQueue();
+//        testArrayListQueue();
+//        testLinkedListStack();
+//        testArrayListStack();
     }
 
     void testLinkedListQueue(){
@@ -169,14 +169,16 @@ public class ManualTest {
         cars.add(6, new Car("Hyundai","Lantra",1998,9500,777));
         cars.set(4, c3);
         cars.println("Po įterpimų");
-        cars.remove(7);
-        cars.remove(0);
-        cars.println("Po išmetimų");
-        cars.remove(0); cars.remove(0); cars.remove(0);
-        cars.remove(0); cars.remove(0); cars.remove(0);
-        cars.println("Po visų išmetimų");
-        cars.remove(0);
-        cars.println("Po visų išmetimų");
+        cars.removeFirstOccurence(c1);
+        cars.println("Po išmetimo");
+//        cars.remove(7);
+//        cars.remove(0);
+//        cars.println("Po išmetimų");
+//        cars.remove(0); cars.remove(0); cars.remove(0);
+//        cars.remove(0); cars.remove(0); cars.remove(0);
+//        cars.println("Po visų išmetimų");
+//        cars.remove(0);
+//        cars.println("Po visų išmetimų");
     }
 
     void countRenault() {

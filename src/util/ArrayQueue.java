@@ -21,6 +21,7 @@ public class ArrayQueue<E> implements QueueInter<E> {
         thisList.add(item);
     }
 
+    //susitvarkyti is pabaigos
     @Override // =====> O(n)
     public E dequeue() {
         E firstElement = peak();
